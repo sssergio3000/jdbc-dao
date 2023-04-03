@@ -21,6 +21,8 @@ public class Main {
         // carShopService.updateCar();
 
         // Use case 4. Test CRUD's 'Delete' operation
-        carShopService.deleteCar();
+//        carShopService.deleteCar();
+//        carShopService.addClient();
+//        carShopService.deleteClient();
     }
 }

@@ -30,11 +30,11 @@ public abstract class AbstractJdbcDao<E> {
             }
         }
     }
-    protected void getConnectionClosed (Connection connection, PreparedStatement preparedStatement){
-        if (connection != null&& preparedStatement !=null){
+    protected void getConnectionClosed (Connection connection){
+        if (connection != null){
             try {
                 connection.close();
-                preparedStatement.close();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }

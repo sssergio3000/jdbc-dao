@@ -11,22 +11,22 @@ public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
     @Override
     public void create(Client client) {
         Connection connection = getConnection();
-        PreparedStatement statement = null;
+        PreparedStatement preparedStatement = null;
 
         try {
-            statement = connection.prepareStatement("insert into clients (name, age, phone) values" +
-                    "?,?,? ");
-            statement.setString(1, client.getName());
-            statement.setInt(2, client.getAge());
-            statement.setString(3, client.getPhone());
-            statement.execute();
+            preparedStatement = connection.prepareStatement("insert into clients (name, age, phone) values" +
+                    "(?,?,?) ");
+            preparedStatement.setString(1, client.getName());
+            preparedStatement.setInt(2, client.getAge());
+            preparedStatement.setString(3, client.getPhone());
+            preparedStatement.execute();
 
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         finally {
-            disposeResources(connection, statement);
+            disposeResources(connection, preparedStatement);
         }
 
 
@@ -34,6 +34,21 @@ public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
 
     @Override
     public void deleteByID(int id) {
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+
+        try {
+            preparedStatement = connection.prepareStatement("delete from clients where id = ?");
+            preparedStatement.setInt(1,id);
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            disposeResources(connection, preparedStatement);
+        }
+
 
     }
 

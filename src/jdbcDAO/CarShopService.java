@@ -12,10 +12,13 @@ import static java.util.Comparator.comparing;
 public class CarShopService {
     private IDAOFactory factory;
     private CarDAO carDAO;
+    private  ClientDAO clientDAO;
+
 
     public CarShopService() {
         factory = DAOFactory.getInstance();
         carDAO = factory.getCarDAO();
+        clientDAO = factory.getClientDAO();
         // carDAO = factory.getFakeCarDAO();
     }
 
@@ -72,6 +75,41 @@ public class CarShopService {
             System.out.println(car);
         }
     }
+
+    private void printAllClients (){
+        List<Client> clients = clientDAO.getAll();
+        Collections.sort(clients, comparing(Client::getId));
+        for(Client client : clients) {
+            System.out.println(client);
+        }
+    }
+    public void addClient (){
+
+        System.out.println("Clients before addition:");
+
+        printAllClients();
+
+        clientDAO.create(new Client(0,"George", 99,"098765432"));
+
+        System.out.println("Clients after addition:");
+
+        printAllClients();
+
+    }
+
+    public void deleteClient (){
+        System.out.println("Clients before addition:");
+
+        printAllClients();
+
+        clientDAO.deleteByID(4);
+
+        System.out.println("Clients after addition:");
+
+        printAllClients();
+
+    }
+
 
 
 }

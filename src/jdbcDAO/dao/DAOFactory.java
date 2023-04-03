@@ -39,7 +39,8 @@ public class DAOFactory implements IDAOFactory {
 
     @Override
     public ClientDAO getClientDAO() {
-        return null;
+        return new ClientJDBCDao() {
+        };
     }
 
 }
