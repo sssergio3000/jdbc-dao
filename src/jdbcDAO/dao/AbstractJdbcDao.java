@@ -1,9 +1,6 @@
 package jdbcDAO.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public abstract class AbstractJdbcDao<E> {
 
@@ -33,10 +30,11 @@ public abstract class AbstractJdbcDao<E> {
             }
         }
     }
-    protected void getConnectionClosed (Connection connection){
-        if (connection != null){
+    protected void getConnectionClosed (Connection connection, PreparedStatement preparedStatement){
+        if (connection != null&& preparedStatement !=null){
             try {
                 connection.close();
+                preparedStatement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

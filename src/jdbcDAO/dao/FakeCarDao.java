@@ -1,6 +1,6 @@
 package jdbcDAO.dao;
 
-import com.itvdn.javastarter.test.simple_dao.entity.Car;
+import jdbcDAO.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;

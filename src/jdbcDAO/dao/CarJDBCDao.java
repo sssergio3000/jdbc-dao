@@ -1,6 +1,6 @@
 package jdbcDAO.dao;
 
-import com.itvdn.javastarter.test.simple_dao.entity.Car;
+import jdbcDAO.entity.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -163,7 +163,7 @@ public class CarJDBCDao extends AbstractJdbcDao implements CarDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            disposeResources(connection);
+            disposeResources(connection, preparedStatement);
         }
         return allCars;
     }
