@@ -33,5 +33,14 @@ public abstract class AbstractJdbcDao<E> {
             }
         }
     }
+    protected void getConnectionClosed (Connection connection){
+        if (connection != null){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

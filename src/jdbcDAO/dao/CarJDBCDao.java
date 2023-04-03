@@ -163,7 +163,7 @@ public class CarJDBCDao extends AbstractJdbcDao implements CarDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            disposeResources(connection, preparedStatement);
+            disposeResources(connection);
         }
         return allCars;
     }
