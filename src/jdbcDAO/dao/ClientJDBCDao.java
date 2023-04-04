@@ -9,7 +9,7 @@ import java.util.List;
 public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
 
     @Override
-    public void create(Client client) {
+    public void createClient(Client client) {
         Connection connection = getConnection();
         PreparedStatement preparedStatement = null;
 
@@ -51,10 +51,34 @@ public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
 
 
     }
+@Override
+    public List<Client> readByName(String nameParam) {
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+        List<Client> clients = new ArrayList<>();
 
-    @Override
-    public Client read(int id) {
-        return null;
+        try {
+            preparedStatement = connection.prepareStatement("select * from clients where name = ?");
+            preparedStatement.setString(1,nameParam);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+             long id = rs.getInt(1);
+             int age = rs.getInt(3);
+             String phone = rs.getString(4);
+
+             clients.add(new Client(id, nameParam, age, phone));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            disposeResources(connection, preparedStatement);
+        }
+
+
+        return clients;
     }
 
     @Override
@@ -67,6 +91,8 @@ public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
             statement = connection.createStatement();
 
             ResultSet rs = statement.executeQuery("select * from clients");
+
+
 
             while (rs.next()){
                 int id = rs.getInt(1);
@@ -81,6 +107,8 @@ public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
         }
         finally {
             getConnectionClosed(connection);
+
+
         }
 
 
@@ -90,7 +118,25 @@ public class ClientJDBCDao extends AbstractJdbcDao implements ClientDAO {
     }
 
     @Override
-    public void updatePhone(int id, String phone) {
+    public void updatePhoneById(int id, String phone) {
+
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+
+        try {
+            preparedStatement = connection.prepareStatement("update clients set phone = ? where id = ?");
+            preparedStatement.setString(1, phone);
+            preparedStatement.setInt(2,id);
+            preparedStatement.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            disposeResources(connection, preparedStatement);
+        }
+
 
     }
 }

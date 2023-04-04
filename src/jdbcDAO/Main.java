@@ -2,9 +2,7 @@ package jdbcDAO;
 
 
 
-/**
- * Created by Asus on 31.01.2018.
- */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,6 +21,9 @@ public class Main {
         // Use case 4. Test CRUD's 'Delete' operation
 //        carShopService.deleteCar();
 //        carShopService.addClient();
-//        carShopService.deleteClient();
+//        carShopService.deleteClient(3);
+        carShopService.printAllClients();
+//        carShopService.readClientByName("John");
+//        carShopService.alterPhoneById(5, "666666666666");
     }
 }

@@ -6,9 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Asus on 31.01.2018.
- */
+
 public class CarJDBCDao extends AbstractJdbcDao implements CarDAO {
 
     @Override

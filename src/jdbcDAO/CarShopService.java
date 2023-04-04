@@ -76,20 +76,20 @@ public class CarShopService {
         }
     }
 
-    private void printAllClients (){
+    public void printAllClients (){
         List<Client> clients = clientDAO.getAll();
         Collections.sort(clients, comparing(Client::getId));
         for(Client client : clients) {
             System.out.println(client);
         }
     }
-    public void addClient (){
+    public void addClient(){
 
         System.out.println("Clients before addition:");
 
         printAllClients();
 
-        clientDAO.create(new Client(0,"George", 99,"098765432"));
+        clientDAO.createClient(new Client(0,"Vasja", 55,"09822222222"));
 
         System.out.println("Clients after addition:");
 
@@ -97,16 +97,38 @@ public class CarShopService {
 
     }
 
-    public void deleteClient (){
+    public void deleteClient (int id){
         System.out.println("Clients before addition:");
 
         printAllClients();
 
-        clientDAO.deleteByID(4);
+        clientDAO.deleteByID(id);
 
         System.out.println("Clients after addition:");
 
         printAllClients();
+
+    }
+
+    public void readClientByName(String nameParam) {
+        List<Client> list = clientDAO.readByName(nameParam);
+
+        for (Client client : list) {
+            System.out.println(client);
+
+
+        }
+
+    }
+    public void alterPhoneById(int id, String phone){
+        System.out.println("all records before modification: ");
+        printAllClients();
+
+        clientDAO.updatePhoneById(id, phone);
+
+        System.out.println("all records after modification: ");
+        printAllClients();
+
 
     }
 
