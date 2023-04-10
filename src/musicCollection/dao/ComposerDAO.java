@@ -7,7 +7,7 @@ public interface ComposerDAO {
         void deleteByName(String nameParam);
         Composer readByName (String nameParam);
 
-        void renameByNmae (String nameParam, String newNameParam);
+        void renameByName (String nameParam, String newNameParam);
 
 
 

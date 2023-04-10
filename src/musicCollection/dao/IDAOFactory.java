@@ -9,7 +9,7 @@ public interface IDAOFactory {
 
     DiscInfoDAO getDiscInfoDAO();
 
-    DiscDAO getDiscDAO();
+    DiscJDBCDAO getDiscDAO();
 
 
 

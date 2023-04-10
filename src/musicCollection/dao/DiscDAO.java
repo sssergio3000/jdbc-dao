@@ -1,4 +1,6 @@
 package musicCollection.dao;
 
-public class DiscDAO {
+public interface DiscDAO {
+
+
 }

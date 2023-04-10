@@ -33,7 +33,7 @@ public class DAOFactory implements IDAOFactory {
 
     @Override
     public StyleDAO getStyleDAO() {
-        return new S;
+        return new StyleJDBCDAO;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class DAOFactory implements IDAOFactory {
     }
 
     @Override
-    public DiscDAO getDiscDAO() {
+    public DiscJDBCDAO getDiscDAO() {
         return null;
     }
 }
