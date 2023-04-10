@@ -28,9 +28,7 @@ public class Composer {
 
     @Override
     public String toString() {
-        return "Composer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "id=" + id +
+                ", name=" + name ;
     }
 }

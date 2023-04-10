@@ -1112,11 +1112,11 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="315" parent="294" name="disc">
+    <table id="315" parent="294" name="disc_info">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="316" parent="294" name="disc_info">
+    <table id="316" parent="294" name="disc_tracks">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
@@ -1211,72 +1211,81 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="335" parent="315" name="id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="336" parent="315" name="track_id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <foreign-key id="337" parent="315" name="disc_ibfk_1">
-      <ColNames>track_id</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>compositions</RefTableName>
-    </foreign-key>
-    <index id="338" parent="315" name="PRIMARY">
-      <ColNames>id
-track_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="339" parent="315" name="track_id">
-      <ColNames>track_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="340" parent="315" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="341" parent="316" name="id">
       <AutoIncrement>4</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="342" parent="316" name="title">
+    <column id="336" parent="315" name="title">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="343" parent="316" name="PRIMARY">
+    <index id="337" parent="315" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="344" parent="316" name="PRIMARY">
+    <key id="338" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="345" parent="317" name="id">
+    <column id="339" parent="316" name="disc_id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="340" parent="316" name="track_id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="341" parent="316" name="disc_tracks_ibfk_2">
+      <ColNames>disc_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>id</RefColNames>
+      <RefTableName>disc_info</RefTableName>
+    </foreign-key>
+    <foreign-key id="342" parent="316" name="disc_tracks_ibfk_1">
+      <ColNames>track_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>id</RefColNames>
+      <RefTableName>compositions</RefTableName>
+    </foreign-key>
+    <index id="343" parent="316" name="PRIMARY">
+      <ColNames>disc_id
+track_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="344" parent="316" name="track_id">
+      <ColNames>track_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="345" parent="316" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="346" parent="317" name="id">
       <AutoIncrement>8</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="346" parent="317" name="title">
+    <column id="347" parent="317" name="title">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
     </column>
-    <index id="347" parent="317" name="PRIMARY">
+    <index id="348" parent="317" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="348" parent="317" name="PRIMARY">
+    <key id="349" parent="317" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

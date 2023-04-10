@@ -1,11 +1,14 @@
 package musicCollection.dao;
 
+import jdbcDAO.entity.Car;
 import musicCollection.entity.Composer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComposerJDBCDAO extends AbstrJDBCDAO implements ComposerDAO{
     @Override
@@ -26,7 +29,7 @@ public class ComposerJDBCDAO extends AbstrJDBCDAO implements ComposerDAO{
 
             ps = connection.prepareStatement("insert into composers (name) values ?");
             ps.setString(1, composer.getName());
-            ps.executeUpdate();
+            ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,7 +56,35 @@ public class ComposerJDBCDAO extends AbstrJDBCDAO implements ComposerDAO{
     }
 
     @Override
-    public void renameByNmae(String nameParam, String newNameParam) {
+    public void renameByName(String nameParam, String newNameParam) {
 
     }
+
+    @Override
+    public List<Composer> getAll(){
+        List<Composer> composers = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+
+        try {
+            preparedStatement = connection.prepareStatement("SELECT * from composers ");
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+
+                Composer composer = new Composer(id, name);
+                composers.add(composer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            getConnectionClosed(connection);
+        }
+        return composers;
+
+
+    };
 }
