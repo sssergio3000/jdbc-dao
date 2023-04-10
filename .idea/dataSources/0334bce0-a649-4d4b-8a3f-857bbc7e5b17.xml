@@ -1116,142 +1116,167 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="316" parent="294" name="styles">
+    <table id="316" parent="294" name="disc_info">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="317" parent="313" name="id">
+    <table id="317" parent="294" name="styles">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="318" parent="313" name="id">
       <AutoIncrement>11</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="318" parent="313" name="name">
+    <column id="319" parent="313" name="name">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
     </column>
-    <index id="319" parent="313" name="PRIMARY">
+    <index id="320" parent="313" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="320" parent="313" name="name">
+    <index id="321" parent="313" name="name">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="321" parent="313" name="PRIMARY">
+    <key id="322" parent="313" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="322" parent="313" name="name">
+    <key id="323" parent="313" name="name">
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="323" parent="314" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="324" parent="314" name="id">
+      <AutoIncrement>12</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="324" parent="314" name="title">
+    <column id="325" parent="314" name="title">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="325" parent="314" name="composer">
+    <column id="326" parent="314" name="composer">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="326" parent="314" name="style">
+    <column id="327" parent="314" name="style">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="327" parent="314" name="length_sec">
+    <column id="328" parent="314" name="length_sec">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <foreign-key id="328" parent="314" name="compositions_ibfk_1">
+    <foreign-key id="329" parent="314" name="compositions_ibfk_1">
       <ColNames>composer</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>composers</RefTableName>
     </foreign-key>
-    <foreign-key id="329" parent="314" name="compositions_ibfk_2">
+    <foreign-key id="330" parent="314" name="compositions_ibfk_2">
       <ColNames>style</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>styles</RefTableName>
     </foreign-key>
-    <index id="330" parent="314" name="PRIMARY">
+    <index id="331" parent="314" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="331" parent="314" name="composer">
+    <index id="332" parent="314" name="composer">
       <ColNames>composer</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="332" parent="314" name="style">
+    <index id="333" parent="314" name="style">
       <ColNames>style</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="314" name="PRIMARY">
+    <key id="334" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="334" parent="315" name="id">
+    <column id="335" parent="315" name="id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="335" parent="315" name="track_id">
+    <column id="336" parent="315" name="track_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="336" parent="315" name="disc_ibfk_1">
+    <foreign-key id="337" parent="315" name="disc_ibfk_1">
       <ColNames>track_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>compositions</RefTableName>
     </foreign-key>
-    <index id="337" parent="315" name="PRIMARY">
+    <index id="338" parent="315" name="PRIMARY">
       <ColNames>id
 track_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="338" parent="315" name="track_id">
+    <index id="339" parent="315" name="track_id">
       <ColNames>track_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="339" parent="315" name="PRIMARY">
+    <key id="340" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="340" parent="316" name="id">
+    <column id="341" parent="316" name="id">
+      <AutoIncrement>4</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="342" parent="316" name="title">
+      <DasType>varchar(30)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="343" parent="316" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="344" parent="316" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="345" parent="317" name="id">
       <AutoIncrement>8</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="341" parent="316" name="title">
+    <column id="346" parent="317" name="title">
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
     </column>
-    <index id="342" parent="316" name="PRIMARY">
+    <index id="347" parent="317" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="343" parent="316" name="PRIMARY">
+    <key id="348" parent="317" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
