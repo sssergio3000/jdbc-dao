@@ -1,15 +1,11 @@
 package musicCollection;
 
-//import jdbcDAO.dao.CarDAO;
-//import jdbcDAO.dao.ClientDAO;
-//import jdbcDAO.dao.DAOFactory;
-//import jdbcDAO.dao.IDAOFactory;
-//import jdbcDAO.entity.Car;
-//import jdbcDAO.entity.Client;
+
 import musicCollection.dao.ComposerDAO;
 import musicCollection.dao.IDAOFactory;
 import musicCollection.dao.*;
 import musicCollection.entity.Composer;
+import musicCollection.entity.Style;
 
 import java.util.Collections;
 import java.util.List;
@@ -54,43 +50,37 @@ public class MusicService {
         printAllComposers();
     }
 
-//    private void printAllComposers() {
-//    }
+    public void deleteComposerByName(String name){
+        System.out.println("All composers BEFORE delete: ");
+        printAllComposers();
+
+        composerDAO.deleteByName(name);
+
+        System.out.println("\n All composers After delete:");
+        printAllComposers();
+    }
 //
-//    public void readCar() {
-//        Car car = carDAO.read(1);
-//        System.out.println(car);
-//    }
 //
-//    public void updateCar() {
-//        System.out.println("All cars BEFORE update:");
-//        printAllCars();
+    public void readComposerByName (String nameParam) {
+        Composer composer = composerDAO.readByName(nameParam);
+        if (composer != null){
+            System.out.println(composer);
+        }
+        else {
+            System.out.println("No such composer in DB");
+        }
+
+    }
+
+    public void createStyle (String title){
+
+    }
+
 //
-//        carDAO.updatePrice(55000, 1);
-//        carDAO.updatePrice(90000, 2);
 //
-//        System.out.println("\nAll cars AFTER update:");
-//        printAllCars();
-//    }
 //
-//    public void deleteCar() {
-//        System.out.println("All cars BEFORE delete:");
-//        printAllCars();
 //
-//        // FK should be 'ON UPDATE CASCADE ON DELETE CASCADE'
-//        carDAO.deleteByMake("Porsche");
 //
-//        System.out.println("\nAll cars AFTER delete:");
-//        printAllCars();
-//    }
-//
-//    private void printAllCars() {
-//        List<Car> cars = carDAO.getAll();
-//        Collections.sort(cars, comparing(Car::getId));
-//        for(Car car : cars) {
-//            System.out.println(car);
-//        }
-//    }
 //
     public void printAllComposers (){
         List<Composer> composers = composerDAO.getAll();
@@ -99,54 +89,16 @@ public class MusicService {
             System.out.println(composer);
         }
     }
-//    public void addClient(){
-//
-//        System.out.println("Clients before addition:");
-//
-//        printAllClients();
-//
-//        clientDAO.createClient(new Client(0,"Vasja", 55,"09822222222"));
-//
-//        System.out.println("Clients after addition:");
-//
-//        printAllClients();
-//
-//    }
-//
-//    public void deleteClient (int id){
-//        System.out.println("Clients before addition:");
-//
-//        printAllClients();
-//
-//        clientDAO.deleteByID(id);
-//
-//        System.out.println("Clients after addition:");
-//
-//        printAllClients();
-//
-//    }
-//
-//    public void readClientByName(String nameParam) {
-//        List<Client> list = clientDAO.readByName(nameParam);
-//
-//        for (Client client : list) {
-//            System.out.println(client);
-//
-//
-//        }
-//
-//    }
-//    public void alterPhoneById(int id, String phone){
-//        System.out.println("all records before modification: ");
-//        printAllClients();
-//
-//        clientDAO.updatePhoneById(id, phone);
-//
-//        System.out.println("all records after modification: ");
-//        printAllClients();
-//
-//
-//    }
+
+    public void printAllStyles (){
+        List<Style> styles = styleDAO.getAll();
+        Collections.sort(styles, comparing(Style::getTitle));
+        for (Style style : styles) {
+            System.out.println(style);
+        }
+    }
+
+
 
 
 

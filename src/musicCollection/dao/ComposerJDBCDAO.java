@@ -1,6 +1,5 @@
 package musicCollection.dao;
 
-import jdbcDAO.entity.Car;
 import musicCollection.entity.Composer;
 
 import java.sql.Connection;
@@ -27,7 +26,7 @@ public class ComposerJDBCDAO extends AbstrJDBCDAO implements ComposerDAO{
                 return;
             }
 
-            ps = connection.prepareStatement("insert into composers (name) values ?");
+            ps = connection.prepareStatement("insert into composers (name) values (?)");
             ps.setString(1, composer.getName());
             ps.execute();
         } catch (SQLException e) {
@@ -47,17 +46,55 @@ public class ComposerJDBCDAO extends AbstrJDBCDAO implements ComposerDAO{
 
     @Override
     public void deleteByName(String nameParam) {
+        Connection connection = getConnection();
+        PreparedStatement ps = null;
+
+        try {
+            ps = connection.prepareStatement("delete from composers  where name = (?)");
+            ps.setString(1, nameParam);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                getConnectionClosed(connection);
+            }
+        }
+
+
+
+
 
     }
 
     @Override
     public Composer readByName(String nameParam) {
-        return null;
-    }
+        Connection connection = getConnection();
+        PreparedStatement ps = null;
 
-    @Override
-    public void renameByName(String nameParam, String newNameParam) {
+        try {
+            ps = connection.prepareStatement("select * from composers  where name = (?)");
+            ps.setString(1, nameParam);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                return new Composer(id, name);
+            }
 
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (connection != null) {
+                getConnectionClosed(connection);
+            }
+        }
+
+      return null;
     }
 
     @Override

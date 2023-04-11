@@ -9,8 +9,6 @@ public interface ComposerDAO {
         void deleteByName(String nameParam);
         Composer readByName (String nameParam);
 
-        void renameByName (String nameParam, String newNameParam);
-
         List<Composer> getAll();
 
 

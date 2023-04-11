@@ -2,11 +2,11 @@ package musicCollection.entity;
 
 public class Style {
     private int id;
-    private String name;
+    private String title;
 
     public Style(int id, String name) {
         this.id = id;
-        this.name = name;
+        this.title = name;
     }
 
     public int getId() {
@@ -17,11 +17,18 @@ public class Style {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", name=" + title + '\'' +
+                '}';
     }
 }
