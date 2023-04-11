@@ -24,16 +24,7 @@ public abstract class AbstrJDBCDAO {
         return connection;
     }
 
-//    protected void disposeResources(Connection connection, PreparedStatement preparedStatement) {
-//        if (connection != null && preparedStatement != null) {
-//            try {
-//                connection.close();
-//                preparedStatement.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+
     protected void getConnectionClosed (Connection connection){
         if (connection != null){
             try {
