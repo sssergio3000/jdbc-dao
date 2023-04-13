@@ -12,6 +12,6 @@ public class Main {
 //        ms.readComposerByName("Vadonna");
 //        ms.createStyle("JJJ");
 //        ms.deleteStyleByTitle("Popsa");
-        ms.printAllDiscInfo();
+//        ms.deleteDiscInfoById(4);
     }
 }

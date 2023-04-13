@@ -51,6 +51,7 @@ public class DAOFactory implements IDAOFactory {
 
     @Override
     public DiscJDBCDAO getDiscDAO() {
-        return null;
+
+        return new DiscJDBCDAO();
     }
 }

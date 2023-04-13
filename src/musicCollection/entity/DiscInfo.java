@@ -32,7 +32,6 @@ public class DiscInfo {
     @Override
     public java.lang.String toString() {
         return  "id=" + id +
-                ", title=" + title + '\'' +
-                '}';
+                ", title=" + title;
     }
 }
