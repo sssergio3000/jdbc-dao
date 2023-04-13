@@ -8,7 +8,7 @@ public interface StyleDAO {
 
     void creat(String style);
 
-    void delete(String style);
+    void deleteByTitle(String style);
 
     List<Style> getAll();
 

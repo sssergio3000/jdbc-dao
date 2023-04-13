@@ -10,5 +10,8 @@ public class Main {
 //        ms.createNewComposer(new Composer(0, "Sting"));
 //        ms.deleteComposerByName("Sting");
 //        ms.readComposerByName("Vadonna");
+//        ms.createStyle("JJJ");
+//        ms.deleteStyleByTitle("Popsa");
+        ms.printAllDiscInfo();
     }
 }

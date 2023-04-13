@@ -39,12 +39,14 @@ public class DAOFactory implements IDAOFactory {
 
     @Override
     public CompositionDAO getCompositionDAO() {
-        return null;
+
+        return new CompositionJDBCDAO();
     }
 
     @Override
     public DiscInfoDAO getDiscInfoDAO() {
-        return null;
+
+        return new DiscInfoJDBCDAO();
     }
 
     @Override

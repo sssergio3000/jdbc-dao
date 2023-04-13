@@ -5,6 +5,7 @@ import musicCollection.dao.ComposerDAO;
 import musicCollection.dao.IDAOFactory;
 import musicCollection.dao.*;
 import musicCollection.entity.Composer;
+import musicCollection.entity.DiscInfo;
 import musicCollection.entity.Style;
 
 import java.util.Collections;
@@ -15,13 +16,11 @@ import static java.util.Comparator.comparing;
 public class MusicService {
     private IDAOFactory factory;
     private ComposerDAO composerDAO;
-    private DiscInfoDAO discInfoDAO ;
+    private DiscInfoDAO discInfoDAO;
     private DiscDAO discDAO;
     private StyleDAO styleDAO;
 
     private CompositionDAO compositionDAO;
-
-
 
 
     public MusicService() {
@@ -34,23 +33,20 @@ public class MusicService {
 
 
     }
-
+//composer operations begin
     public void createNewComposer(Composer composerParam) {
 
         System.out.println("All composers BEFORE insert:");
         printAllComposers();
 
-             composerDAO.create(composerParam);
-
-
-        // A car with non-existing in db make
+        composerDAO.create(composerParam);
 
 
         System.out.println("\n All composers After insert:");
         printAllComposers();
     }
 
-    public void deleteComposerByName(String name){
+    public void deleteComposerByName(String name) {
         System.out.println("All composers BEFORE delete: ");
         printAllComposers();
 
@@ -59,46 +55,93 @@ public class MusicService {
         System.out.println("\n All composers After delete:");
         printAllComposers();
     }
+
+    //
 //
-//
-    public void readComposerByName (String nameParam) {
+    public void readComposerByName(String nameParam) {
         Composer composer = composerDAO.readByName(nameParam);
-        if (composer != null){
+        if (composer != null) {
             System.out.println(composer);
-        }
-        else {
+        } else {
             System.out.println("No such composer in DB");
         }
 
     }
-
-    public void createStyle (String title){
-
-    }
-
-//
-//
-//
-//
-//
-//
-    public void printAllComposers (){
+    public void printAllComposers() {
         List<Composer> composers = composerDAO.getAll();
         Collections.sort(composers, comparing(Composer::getName));
-        for(Composer composer : composers) {
+        for (Composer composer : composers) {
             System.out.println(composer);
         }
     }
+    //composer operations end
 
-    public void printAllStyles (){
+
+    //style operations begin
+    public void createStyle(String title) {
+        System.out.println("Styles before adding: ");
+        printAllStyles();
+
+        styleDAO.creat(title);
+
+        System.out.println("\nStyles after adding: ");
+        printAllStyles();
+
+    }
+
+    public void deleteStyleByTitle (String titleParam){
+        System.out.println("All styles BEFORE delete: ");
+        printAllStyles();
+
+        styleDAO.deleteByTitle(titleParam);
+
+        System.out.println("\n All styles AFTER delete:");
+        printAllStyles();
+    }
+
+
+    public void printAllStyles() {
         List<Style> styles = styleDAO.getAll();
         Collections.sort(styles, comparing(Style::getTitle));
         for (Style style : styles) {
             System.out.println(style);
         }
     }
+//    style operations end
+//    discInfo operations begin
+public void createDiscInfo(String title) {
+    System.out.println("DiscInfos before adding: ");
+    printAllDiscInfo();
+
+    discInfoDAO.create(title);
+
+    System.out.println("DiscInfos after adding: ");
+    printAllDiscInfo();
+
+}
+
+    public void deleteDiscInfoById (int idParam){
+        System.out.println("DiscInfos before deleting: ");
+        printAllDiscInfo();
+
+        discInfoDAO.deleteById(idParam);
+
+        System.out.println("DiscInfos after deleting: ");
+        printAllDiscInfo();
+    }
 
 
+    public void printAllDiscInfo() {
+        List<DiscInfo> discInfos = discInfoDAO.getAll();
+        Collections.sort(discInfos, comparing(DiscInfo::getTitle));
+        for (DiscInfo discInfo : discInfos) {
+            System.out.println(discInfo);
+        }{
+
+        }
+    }
+
+//    discInfo operations end
 
 
 

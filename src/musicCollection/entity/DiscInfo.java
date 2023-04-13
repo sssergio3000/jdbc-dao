@@ -8,7 +8,7 @@ public class DiscInfo {
     public DiscInfo() {
     }
 
-    public DiscInfo(int id, String title) {
+    public DiscInfo(int id, java.lang.String title) {
         this.id = id;
         this.title = title;
     }
@@ -21,19 +21,18 @@ public class DiscInfo {
         this.id = id;
     }
 
-    public String getTitle() {
+    public java.lang.String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(java.lang.String title) {
         this.title = title;
     }
 
     @Override
-    public String toString() {
-        return "DiscInfo{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+    public java.lang.String toString() {
+        return  "id=" + id +
+                ", title=" + title + '\'' +
                 '}';
     }
 }

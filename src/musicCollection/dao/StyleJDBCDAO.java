@@ -40,7 +40,7 @@ public class StyleJDBCDAO extends AbstrJDBCDAO implements StyleDAO {
     }
 
         @Override
-        public void delete(String styleParam){
+        public void deleteByTitle(String styleParam){
             Connection connection = getConnection();
             PreparedStatement ps = null;
 

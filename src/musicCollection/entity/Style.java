@@ -28,7 +28,7 @@ public class Style {
     @Override
     public String toString() {
         return "id=" + id +
-                ", name=" + title + '\'' +
-                '}';
+                ", name=" + title
+                ;
     }
 }
