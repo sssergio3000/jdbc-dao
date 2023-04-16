@@ -29,5 +29,13 @@ public class Disc {
         this.list = list;
     }
 
+    @Override
+    public String toString() {
+        String str = "Disc ID: " + getId()+" Compositions: ";
+        for (Composition composition : list) {
+            str+= composition.getId()+", ";
 
+        }
+        return str;
+    }
 }

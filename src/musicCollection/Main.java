@@ -1,6 +1,8 @@
 package musicCollection;
 
 import musicCollection.entity.Composer;
+import musicCollection.entity.Composition;
+import musicCollection.entity.Style;
 
 public class Main {
 
@@ -13,5 +15,10 @@ public class Main {
 //        ms.createStyle("JJJ");
 //        ms.deleteStyleByTitle("Popsa");
 //        ms.deleteDiscInfoById(4);
+        ms.printAllCompositions();
+//        ms.createComposition(new Composition(0,"it's my life", new Composer(0, "Bon Jovi"), new Style(0, "rock"), 111));
+//        ms.deleteCompositionByTitleAndComposer("true love", "abba");
+//        ms.printLengthByCompositionId(7);
+
     }
 }

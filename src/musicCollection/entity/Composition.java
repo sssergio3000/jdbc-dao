@@ -58,12 +58,10 @@ public class Composition {
 
     @Override
     public String toString() {
-        return "Composition{" +
+        return
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", composer=" + composer +
-                ", length=" + length +
-                ", style=" + style +
-                '}';
+                ", composer=" + composer.getName() +
+                ", style=" + style.getTitle() + ", length=" + length;
     }
 }

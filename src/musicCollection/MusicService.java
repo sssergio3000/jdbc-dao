@@ -9,6 +9,7 @@ import musicCollection.entity.Composition;
 import musicCollection.entity.DiscInfo;
 import musicCollection.entity.Style;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -147,8 +148,39 @@ public void createDiscInfo(String title) {
 //    composition operations begin
 
     public void createComposition(Composition composition){
+        System.out.println("Compositions before adding: ");
+        printAllCompositions();
+
+        compositionDAO.create(composition);
+
+        System.out.println("\nCompositions after adding: ");
+        printAllCompositions();
 
     }
+
+    public void printAllCompositions(){
+        List<Composition> compositions = new ArrayList<>();
+        compositions = compositionDAO.getAll();
+        for (Composition composition : compositions) {
+            System.out.println(composition);
+        }
+    }
+
+    public void deleteCompositionByTitleAndComposer (String title, String composerName){
+        System.out.println("Compositions before deletion: ");
+        printAllCompositions();
+
+        compositionDAO.deleteByTitleAndComposer(title, composerName);
+
+        System.out.println("Compositions before deletion: ");
+        printAllCompositions();
+
+    }
+        public void printLengthByCompositionId (int compositionId){
+            System.out.println(compositionDAO.getLengthById(compositionId));
+
+        }
+    //    composition operations end
 
 
 
