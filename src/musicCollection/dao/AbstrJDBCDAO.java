@@ -1,9 +1,6 @@
 package musicCollection.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public abstract class AbstrJDBCDAO {
 
@@ -25,8 +22,8 @@ public abstract class AbstrJDBCDAO {
     }
 
 
-    protected void getConnectionClosed (Connection connection){
-        if (connection != null){
+    protected void getConnectionClosed(Connection connection) {
+        if (connection != null) {
             try {
                 connection.close();
 
@@ -35,5 +32,7 @@ public abstract class AbstrJDBCDAO {
             }
         }
     }
+
+
 
 }

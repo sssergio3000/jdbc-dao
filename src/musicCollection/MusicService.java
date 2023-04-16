@@ -5,6 +5,7 @@ import musicCollection.dao.ComposerDAO;
 import musicCollection.dao.IDAOFactory;
 import musicCollection.dao.*;
 import musicCollection.entity.Composer;
+import musicCollection.entity.Composition;
 import musicCollection.entity.DiscInfo;
 import musicCollection.entity.Style;
 
@@ -142,6 +143,12 @@ public void createDiscInfo(String title) {
     }
 
 //    discInfo operations end
+
+//    composition operations begin
+
+    public void createComposition(Composition composition){
+
+    }
 
 
 

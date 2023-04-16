@@ -95,6 +95,6 @@ public class DiscInfoJDBCDAO extends AbstrJDBCDAO implements DiscInfoDAO{
             return discinfos;
 
 
-        };
+        }
     }
 

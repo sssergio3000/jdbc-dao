@@ -1,13 +1,14 @@
 package musicCollection.entity;
 
 public class Composition {
-    private  long id;
-    private  String title;
+    private long id;
+    private String title;
     private Composer composer;
-    private  int length;
-    private  Style style;
+    private Style style;
+    private int length;
 
-    public Composition(long id, String title, Composer composer, int length, Style style) {
+
+    public Composition(long id, String title, Composer composer, Style style, int length ) {
         this.id = id;
         this.title = title;
         this.composer = composer;
