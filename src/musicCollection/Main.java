@@ -4,6 +4,10 @@ import musicCollection.entity.Composer;
 import musicCollection.entity.Composition;
 import musicCollection.entity.Style;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,10 +19,12 @@ public class Main {
 //        ms.createStyle("JJJ");
 //        ms.deleteStyleByTitle("Popsa");
 //        ms.deleteDiscInfoById(4);
-        ms.printAllCompositions();
+//        ms.printAllCompositions();
 //        ms.createComposition(new Composition(0,"it's my life", new Composer(0, "Bon Jovi"), new Style(0, "rock"), 111));
 //        ms.deleteCompositionByTitleAndComposer("true love", "abba");
 //        ms.printLengthByCompositionId(7);
-
+//        ms.createNewDisc(new ArrayList<>(Arrays.asList(2,6,8,9)), "Madonna 1987");
+        ms.getDiscLengthById(3);
+//        ms.deleteDiscById(5);
     }
 }

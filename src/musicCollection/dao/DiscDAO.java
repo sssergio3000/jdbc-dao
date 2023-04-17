@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DiscDAO {
 
-    void writeToDisc(List<Composition> composition, String discName);
+    void writeToDisc(List<Integer> compositionsID, String discName);
 
     int totalDiscLength (int id);
 

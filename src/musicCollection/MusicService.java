@@ -182,9 +182,36 @@ public void createDiscInfo(String title) {
         }
     //    composition operations end
 
+//    disc operations begin
+
+    public void createNewDisc (List<Integer> compositionsIDParam, String discTitleParam){
+
+            discDAO.writeToDisc(compositionsIDParam, discTitleParam);
+
+        }
+
+        public void getDiscLengthById (int idParam){
+            int timeSec = discDAO.totalDiscLength(idParam);
+            int minutes = timeSec/60;
+            int seconds = timeSec%60;
 
 
-}
+            System.out.println("minutes: "+ minutes + ", seconds:" + seconds);
+        }
+
+        public void deleteDiscById (int idParam){
+
+            discDAO.deleteDiscById(idParam);
+
+        }
+
+
+
+    }
+
+
+
+
 
 
 
