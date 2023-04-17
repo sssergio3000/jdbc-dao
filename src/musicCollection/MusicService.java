@@ -196,7 +196,7 @@ public void createDiscInfo(String title) {
             int seconds = timeSec%60;
 
 
-            System.out.println("minutes: "+ minutes + ", seconds:" + seconds);
+            System.out.println("Total disc tracks length is minutes: "+ minutes + ", seconds:" + seconds);
         }
 
         public void deleteDiscById (int idParam){
